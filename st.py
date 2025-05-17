@@ -87,9 +87,11 @@ for i in range(1, frames):
     new_x1 = x1[-1] + v1_curr * dt
     new_x2 = x2[-1] + v2_curr * dt
 
-    if not collision_occurred and abs(new_x1 - new_x2) < 0.2:
+    if not collision_occurred and abs(new_x1 - new_x2) < 0.7:
         v1_after = ((m1 - m2) * v1_curr + 2 * m2 * v2_curr) / (m1 + m2)
         v2_after = ((m2 - m1) * v2_curr + 2 * m1 * v1_curr) / (m1 + m2)
+        print(f"Скорость тела 1 после столкновения: {abs(v1_after):.2f} м/с")
+        print(f"Скорость тела 2 после столкновения: {abs(v2_after):.2f} м/с\n")
         v1_curr, v2_curr = v1_after, v2_after
         collision_occurred = True
 
